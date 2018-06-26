@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @package     magento2
+ * @author      Codilar Technologies
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.codilar.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <codilar_solrconnector>
+            <general>
+                <is_enabled>0</is_enabled>
+                <solr_url><![CDATA[http://localhost:8983/]]></solr_url>
+                <index_name>magento2_solr</index_name>
+            </general>
+            <autocomplete>
+                <product_rows>8</product_rows>
+                <category_rows>5</category_rows>
+                <autocomplete_is_user_defined>0</autocomplete_is_user_defined>
+            </autocomplete>
+        </codilar_solrconnector>
+    </default>
+</config>

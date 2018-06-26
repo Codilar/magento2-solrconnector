@@ -1,0 +1,48 @@
+<div id="solr_search_autocomplete" class="solr_search_autocomplete">
+    <div class="autocomplete_products">
+            <% if (products.length > 0) { %>
+                <div class="items">
+                    <% products.forEach(function (product) { %>
+                        <div class="item">
+                            <a class="image_container" href="<%= product.product_url %>">
+                                <img src="<%= product.thumbnail %>" alt="<%= product.name %>" />
+                            </a>
+                            <div class="solr_details">
+                                <a class="name_container" href="<%= product.product_url %>"><%= product.name %></a>
+                                <% if (product.special_price > 0 && product.special_price !== product.price) { %>
+                                    <div class="previous_price_container strikethrough"><%= currency_code+product.price %></div>
+                                    <div class="price_container"><%= currency_code+product.special_price %></div>
+                                <% } else { %>
+                                    <div class="price_container"><%= currency_code+product.price %></div>
+                                <% } %>
+                                <div class="rating-summary">
+                                    <div class="rating-result" title="<%= product.product_rating %>%">
+                                        <span style="width:<%= product.product_rating %>%">
+                                            <span>
+                                                <span itemprop="ratingValue"><%= product.product_rating %></span>% of <span itemprop="bestRating">100</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <div class="no-products"><%= i18n('No products found') %></div>
+            <% } %>
+        </div>
+    <div class="autocomplete_categories">
+        <label class="heading"><%= i18n("Categories") %></label>
+        <% if (categories && categories.length > 0) { %>
+            <% categories.forEach(function (category) { %>
+                <div class="category">
+                    <a href="<%= category.category_url %>"><%= category.name %></a>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div class="no-categories"><%= i18n("No categories found") %></div>
+        <% } %>
+    </div>
+</div>

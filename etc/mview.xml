@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @package     magento2
+ * @author      Codilar Technologies
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.codilar.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Mview/etc/mview.xsd">
+
+    <view
+            id="solr_collection_create"
+            class="Codilar\SolrConnector\Model\Indexer\Collection"
+            group="indexer"
+    >
+        <subscriptions>
+            <table name="store" entity_column="store_id" />
+        </subscriptions>
+    </view>
+
+    <view
+            id="solr_product_sync"
+            class="Codilar\SolrConnector\Model\Indexer\Product"
+            group="indexer"
+    >
+        <subscriptions>
+            <table name="catalog_product_entity" entity_column="entity_id" />
+            <table name="catalog_product_entity_datetime" entity_column="entity_id" />
+            <table name="catalog_product_entity_decimal" entity_column="entity_id" />
+            <table name="catalog_product_entity_gallery" entity_column="entity_id" />
+            <table name="catalog_product_entity_int" entity_column="entity_id" />
+            <table name="catalog_product_entity_media_gallery" entity_column="value_id" />
+            <table name="catalog_product_entity_media_gallery_value" entity_column="entity_id" />
+            <table name="catalog_product_entity_text" entity_column="entity_id" />
+            <table name="catalog_product_entity_tier_price" entity_column="entity_id" />
+            <table name="catalog_product_entity_varchar" entity_column="entity_id" />
+            <table name="catalog_product_website" entity_column="product_id" />
+            <table name="catalog_category_product" entity_column="product_id" />
+        </subscriptions>
+    </view>
+
+    <view
+            id="solr_category_sync"
+            class="Codilar\SolrConnector\Model\Indexer\Category"
+            group="indexer"
+    >
+        <subscriptions>
+            <table name="catalog_category_entity" entity_column="entity_id" />
+            <table name="catalog_category_entity_datetime" entity_column="entity_id" />
+            <table name="catalog_category_entity_decimal" entity_column="entity_id" />
+            <table name="catalog_category_entity_gallery" entity_column="entity_id" />
+            <table name="catalog_category_entity_int" entity_column="entity_id" />
+            <table name="catalog_category_entity_text" entity_column="entity_id" />
+            <table name="catalog_category_entity_varchar" entity_column="entity_id" />
+        </subscriptions>
+    </view>
+
+</config>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @package     magento2
+ * @author      Codilar Technologies
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.codilar.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="codilar" translate="label" sortOrder="999" class="codilar-tab">
+            <label>Codilar Settings</label>
+        </tab>
+        <section id="codilar_solrconnector" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <resource>Codilar_SolrConnectory::config</resource>
+            <class>separator-top</class>
+            <label>Solr Connector</label>
+            <tab>codilar</tab>
+            <group id="general" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="solr_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Url</label>
+                    <comment><![CDATA[With port]]></comment>
+                    <depends>
+                        <field id="*/general/is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="index_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Index Name</label>
+                    <depends>
+                        <field id="*/general/is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="autocomplete" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Autocomplete Configuration</label>
+                <field id="product_rows" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of products to show</label>
+                </field>
+                <field id="category_rows" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of categories to show</label>
+                </field>
+                <field id="autocomplete_is_user_defined" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use Autocomplete Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="autocomplete_template" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autocomplete Template</label>
+                    <comment><![CDATA[<b>Codilar Solr Connector</b> uses <a href="http://underscorejs.org/">underscoreJS</a> as their templating engine]]></comment>
+                    <depends>
+                        <field id="autocomplete_is_user_defined">1</field>
+                    </depends>
+                </field>
+                <depends>
+                    <field id="*/general/is_enabled">1</field>
+                </depends>
+            </group>
+            <group id="product_schema" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Schema Configuration</label>
+                <field id="attributes" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attributes</label>
+                    <frontend_model>Codilar\SolrConnector\Model\Source\ProductAttribute</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <depends>
+                    <field id="*/general/is_enabled">1</field>
+                </depends>
+            </group>
+            <group id="category_schema" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Schema Configuration</label>
+                <field id="attributes" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attributes</label>
+                    <frontend_model>Codilar\SolrConnector\Model\Source\CategoryAttribute</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <depends>
+                    <field id="*/general/is_enabled">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @package     magento2
+ * @author      Codilar Technologies
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.codilar.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Indexer/etc/indexer.xsd">
+    <indexer
+            id="solr_collection_create"
+            view_id="solr_collection_create"
+            class="Codilar\SolrConnector\Model\Indexer\Collection"
+    >
+        <title translate="true">SOLR: Create collections based on stores</title>
+        <description translate="true">SOLR: Create collections based on stores</description>
+    </indexer>
+    <indexer
+            id="solr_product_sync"
+            view_id="solr_product_sync"
+            class="Codilar\SolrConnector\Model\Indexer\Product"
+    >
+        <title translate="true">SOLR: Synchronizing products With Solr</title>
+        <description translate="true">SOLR: Synchronizing products With Solr</description>
+    </indexer>
+    <indexer
+            id="solr_category_sync"
+            view_id="solr_category_sync"
+            class="Codilar\SolrConnector\Model\Indexer\Category"
+    >
+        <title translate="true">SOLR: Synchronizing categories With Solr</title>
+        <description translate="true">SOLR: Synchronizing categories With Solr</description>
+    </indexer>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @package     magento2
+ * @author      Codilar Technologies
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.codilar.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="set_total_results_at_toolbar" type="Codilar\SolrConnector\Plugin\Toolbar" />
+    </type>
+    <type name="Magento\Theme\Block\Html\Pager">
+        <plugin name="set_total_results_at_pager" type="Codilar\SolrConnector\Plugin\Pager" />
+    </type>
+</config>

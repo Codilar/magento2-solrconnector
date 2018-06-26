@@ -1,0 +1,50 @@
+<?php
+/* @var \Codilar\SolrConnector\Block\Solr $block */
+$helper = $block->getSearchHelper();
+?>
+<div class="solr_topsearch_container">
+    <div class="block block-search">
+        <div class="block block-title"><strong><?= /* @escapeNotVerified */ __('Search') ?></strong></div>
+        <div class="block block-content">
+            <form class="form minisearch" id="search_mini_form" action="<?= /* @escapeNotVerified */ $helper->getResultUrl() ?>" method="get">
+                <div class="field search">
+                    <label class="label" for="search" data-role="minisearch-label">
+                        <span><?= /* @escapeNotVerified */ __('Search') ?></span>
+                    </label>
+                    <div class="control">
+                        <input id="search"
+                               type="text"
+                               name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+                               value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+                               placeholder="<?= /* @escapeNotVerified */ __('Search entire store here...') ?>"
+                               class="input-text"
+                               maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
+                               role="combobox"
+                               aria-haspopup="false"
+                               aria-autocomplete="both"
+                               autocomplete="off"/>
+                        <div class="solr_search_autocomplete_container"></div>
+                        <?= $block->getChildHtml() ?>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="submit"
+                            title="<?= $block->escapeHtml(__('Search')) ?>"
+                            class="action search">
+                        <span><?= /* @escapeNotVerified */ __('Search') ?></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "input#search": {
+            "solrAutocomplete": {
+                "config": <?= $block->getConfigJson() ?>,
+                "autocompleteContainerSelector": ".solr_search_autocomplete_container"
+            }
+        }
+    }
+</script>

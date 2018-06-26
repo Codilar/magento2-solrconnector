@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @package     magento2
+ * @author      Codilar Technologies
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.codilar.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_after">
+        <observer name="sync_product_data_with_solr" instance="Codilar\SolrConnector\Observer\ProductSync"/>
+    </event>
+    <event name="cataloginventory_stock_item_save_commit_after">
+        <observer name="sync_product_data_with_solr" instance="Codilar\SolrConnector\Observer\ProductSync"/>
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="sync_product_data_with_solr" instance="Codilar\SolrConnector\Observer\ProductSync"/>
+    </event>
+    <event name="order_cancel_after">
+        <observer name="sync_product_data_with_solr" instance="Codilar\SolrConnector\Observer\ProductSync"/>
+    </event>
+    <event name="catalog_category_save_after">
+        <observer name="sync_category_data_with_solr" instance="Codilar\SolrConnector\Observer\CategorySync"/>
+    </event>
+</config>

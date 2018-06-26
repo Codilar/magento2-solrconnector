@@ -1,0 +1,81 @@
+#solr_search_autocomplete {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  padding: 20px;
+  width: 800px;
+  box-shadow: 0px 3px 10px 0px #2c27271f;
+}
+#solr_search_autocomplete .autocomplete_categories, #solr_search_autocomplete .autocomplete_products {
+  display: inline-block;
+}
+#solr_search_autocomplete .autocomplete_categories {
+  width: 216px;
+  float: left;
+  margin-right: 24px;
+}
+#solr_search_autocomplete .autocomplete_products .no-products {
+  text-align: center;
+  padding: 15px;
+}
+#solr_search_autocomplete .autocomplete_products {
+  width: 560px;
+}
+#solr_search_autocomplete .autocomplete_categories .heading {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid silver;
+  display: block;
+}
+#solr_search_autocomplete .autocomplete_categories .category {
+  padding: 5px;
+}
+#solr_search_autocomplete .image_container {
+  padding: 2px;
+  float: left;
+  width: 75px;
+  height: auto;
+  margin-right: 10px;
+}
+#solr_search_autocomplete .image_container img {
+  float: left;
+  width: 75px;
+}
+#solr_search_autocomplete .solr_details {
+  float: left;
+  word-wrap: break-word;
+  width: calc(100% - 90px);
+}
+#solr_search_autocomplete .items .item {
+  width: 49%;
+  display: inline-flex;
+  align-items: center;
+  transition-duration: 0.3s;
+}
+#solr_search_autocomplete .items .item:hover {
+  background: rgba(178, 137, 137, 0.05);
+}
+#solr_search_autocomplete .solr_details .name_container,
+#solr_search_autocomplete .solr_details .price_container,
+#solr_search_autocomplete .solr_details .previous_price_container {
+  text-align: left;
+  display: block;
+}
+#solr_search_autocomplete .solr_details .price_container {
+  font-weight: bold;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+
+@media only screen and (max-width: 767px) {
+  #solr_search_autocomplete {
+  width: 90%;
+  }
+}
