@@ -107,6 +107,7 @@ class Product
      * @throws LocalizedException
      */
     public function getData($schema = null) {
+        $this->emulation->startEnvironmentEmulation($this->currentStoreId, Area::AREA_FRONTEND, true);
         $product = $this->getProduct();
         if (!$this->isAllowed($product)) {
             return null;
@@ -178,6 +179,7 @@ class Product
         } else {
             $productData = $product->getData();
         }
+        $this->emulation->stopEnvironmentEmulation();
         return $productData;
     }
 
