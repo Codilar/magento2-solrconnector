@@ -31,7 +31,7 @@
                         <field id="*/general/is_enabled">1</field>
                     </depends>
                 </field>
-                <field id="index_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="index_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Index Name</label>
                     <depends>
                         <field id="*/general/is_enabled">1</field>
